@@ -6,3 +6,5 @@ services:
     tty: true
     volumes:
       - .:/geth
+    ports:
+      - 8545:8545
