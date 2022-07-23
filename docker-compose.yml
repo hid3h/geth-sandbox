@@ -1,10 +1,26 @@
 version: "3"
 services:
-  app:
+  app1:
     image: ethereum/client-go
-    entrypoint: "/bin/sh"
+    container_name: private_net1
+    entrypoint: /bin/sh
+#    entrypoint: geth --networkid "22" --nodiscover --datadir /geth --http --http.addr "0.0.0.0" --http.corsdomain "*" --http.vhosts "*" --ws --ws.addr "0.0.0.0" console 2>> /geth/error.log
     tty: true
     volumes:
-      - .:/geth
+      - ./private_net:/geth
     ports:
-      - 8545:8545
+      - 8545:8545 # http.portのデフォルト
+      - 8546:8546 # ws.portのデフォルト
+      - 30303:30303 # NETWORKING OPTIONSのportのデフォルト
+#  app2:
+#    image: ethereum/client-go
+#    container_name: private_net2
+#    entrypoint: "/bin/sh"
+#    tty: true
+#    volumes:
+#      - ./private_net2:/geth
+#    ports:
+#      - 8555:8555
+#      - 8556:8556
+#      - 30313:30313
+# geth --networkid "22" --nodiscover --datadir /geth --port 30313 --bootnodes "enr:-Jy4QPg3NPDQv1NUZRA4Tou2mbcWlQ8iQkdD2-7qncEUc7Q7eA76dDTk8zDNiv11-O-MWC9Nl8m1yUAMTT-mjQ-0UuaGAYCDqZLIg2V0aMfGhL7GGDCAgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQNVdBMFsp46sFOF7KBQaYhHrXVJpwEl9kJy4srLyLJm5oRzbmFwwIN0Y3CCdl8" console 2>> /geth/error.log
