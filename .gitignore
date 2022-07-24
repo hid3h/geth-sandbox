@@ -1,4 +1,5 @@
-private_net/geth
-private_net/keystore
+.idea
+geth
+keystore
+info.log
 history
-error.log
