@@ -20,4 +20,9 @@ services:
     tty: true
     volumes:
       - ./private_net3:/geth
-# geth --networkid "22" --datadir /geth --bootnodes "enode://55741305b29e3ab05385eca050698847ad7549a70125f64272e2cacbc8b266e69a74598b4a515c24b596e5a8dd143dfe90b75124272669e46dcd950b7759e69b@app1:30303" console 2>> /geth/info.log
+  app4:
+    image: ethereum/client-go
+    entrypoint: "/bin/sh"
+    tty: true
+    volumes:
+      - ./private_net4:/geth
