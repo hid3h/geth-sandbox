@@ -12,12 +12,18 @@ docker-compose up
 docker-compose exec app1 /bin/sh
 ```
 
+## Gethの初期化
+```
+geth --datadir /app/ init /app/genesis.json
+```
+
 ## Geth起動
 ```
-geth --networkid "22" --nodiscover --datadir /geth --http --http.addr "0.0.0.0" console 2>> /geth/info.log
+geth --networkid "22" --nodiscover --datadir /app --http --http.addr "0.0.0.0" console 2>> /app/info.log
 ```
 
 ## bootnode
 ```
-geth --networkid "22" --datadir /geth --bootnodes "enode://55741305b29e3ab05385eca050698847ad7549a70125f64272e2cacbc8b266e69a74598b4a515c24b596e5a8dd143dfe90b75124272669e46dcd950b7759e69b@app1:30303" console 2>> /geth/info.log
+# > admin.nodeInfo.enode の@以前の値に置き換える以下の--bootnodesを
+geth --networkid "22" --datadir /app --bootnodes "enode://d36bef9ee44a2b2b2b0e8c926c265ac9a7f741af39326000879965298402370140b42ca631fd96362eeee92a8d952e2233d3816baab958def6747ff2d3e0827a@app1:30303" console 2>> /app/info.log
 ```

@@ -5,7 +5,7 @@ services:
     entrypoint: /bin/sh
     tty: true
     volumes:
-      - ./private_net:/geth
+      - ./private_net:/app
     ports:
       - 8545:8545 # http.portのデフォルト.MetaMask接続用
   app2:
@@ -13,16 +13,16 @@ services:
     entrypoint: "/bin/sh"
     tty: true
     volumes:
-      - ./private_net2:/geth
+      - ./private_net2:/app
   app3:
     image: ethereum/client-go
     entrypoint: "/bin/sh"
     tty: true
     volumes:
-      - ./private_net3:/geth
+      - ./private_net3:/app
   app4:
     image: ethereum/client-go
     entrypoint: "/bin/sh"
     tty: true
     volumes:
-      - ./private_net4:/geth
+      - ./private_net4:/app
