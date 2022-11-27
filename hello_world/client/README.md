@@ -9,3 +9,8 @@ geth --networkid 22 --nodiscover --datadir /app console 2>> /app/info.log
 アカウント確認
 eth.accounts
 ```
+
+```
+マイニング開始
+miner.start(1)
+```
